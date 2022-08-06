@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container p-1">
+
+
+    {% if state== 'ok' %}
+
+    <div class="container my-2 ">
+        <div class="row justify-content-center  ">
+            <div class="col-7 ">
+
+                <img src="/static/{{filename}}" class="img-fluid rounded shadow mx-auto d-block">
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-4 text-center">
+                <h4> Probability of skin cancer </h4>
+
+            </div>
+
+
+        </div>
+        <div class="row my-1 justify-content-center">
+            <div class="col-10">
+                <div class="progress" style="height: 25px;">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: {{probability}}%; "
+                        aria-valuenow="{{probability}}" aria-valuemin="0" aria-valuemax="100">{{probability}}%</div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    {% endif %}
+
+    {% if state== 'no_selected_file' %}
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    No file loaded
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" href="/" role="button">Return to file loading</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {})
+        myModal.show();
+    </script>
+    {% endif %}
+</div>
+
+{% endblock %}
