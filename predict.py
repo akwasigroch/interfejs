@@ -8,7 +8,7 @@ import os
 
 os.environ["CUDA_VISIBLE_DEVICES"]=""
 
-checkpoint_path = '/media/dysk/projects/self-supervised_learning/eksperymenty/do_paperu/stron_augmentation/rotation_imagenet_pretext_invariant/training4/_ckpt_epoch_63.ckpt' 
+checkpoint_path = '_ckpt_epoch_63.ckpt' 
 
 transform = torchvision.transforms.Compose([
                             torchvision.transforms.Resize((224,224)),
